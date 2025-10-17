@@ -1,0 +1,62 @@
+# Project Title: e.g., "Executive FP&A Dashboard for Global Sales"
+
+**Status:** Completed | **Live Demo:** [Link to Tableau Public Dashboard] | **Notebook:** [Link to Jupyter Notebook in this repo]
+
+---
+
+### 1. Business Context & The Problem
+
+As a former CFO, I know that leadership needs clear, real-time insights to make strategic decisions. This project simulates a common business challenge: a global sales organization with data in disparate systems and no unified view of performance.
+
+The key business questions to answer were:
+-   What are our YTD revenue trends versus budget and prior year?
+-   Which product line is driving the most margin?
+-   Who are our top 10 performing sales representatives?
+-   What is our sales pipeline conversion rate?
+
+---
+
+### 2. The Process & The Action
+
+To solve this, I executed an end-to-end data analysis project. The process involved data sourcing, cleaning and transformation (ETL), and finally, visualization.
+
+1.  **Data Sourcing:** The raw data was provided in three separate CSV files (Sales, Budget, and Rep Quotas), simulating data coming from a CRM and a financial planning system.
+2.  **Data Cleaning & Transformation (ETL):** I used Power Query within Power BI to perform all ETL tasks. This included:
+    -   Standardizing date formats and data types.
+    -   Joining the three tables on their respective keys.
+    -   Creating calculated columns for key metrics like "Margin %" and "Variance to Budget."
+3.  **Data Modeling:** I established a simple star schema within Power BI's data model to ensure efficient and accurate analysis.
+4.  **Visualization:** I designed and built an interactive dashboard in Power BI, focusing on a clean, executive-friendly layout.
+
+---
+
+### 3. Tools & Technologies
+
+-   **Power BI:** For all ETL and visualization.
+-   **Power Query (M):** For data transformation steps.
+-   **DAX:** For creating calculated measures and columns.
+-   **Excel:** As the source for the raw CSV data.
+
+---
+
+### 4. Results & Key Insights
+
+The final dashboard provides a single source of truth for the sales organization.
+
+-   **Key Insight 1:** While the "Enterprise" product line drives the most revenue, the "SMB" line has a 15% higher profit margin. **Recommendation:** Investigate pricing strategy for Enterprise products.
+-   **Key Insight 2:** The sales pipeline conversion rate drops significantly at the "Negotiation" stage. **Recommendation:** Provide additional training or resources to the sales team for this specific stage.
+-   **Business Impact:** This dashboard empowers leadership to move from reactive to proactive decision-making, directly impacting sales strategy and profitability.
+
+---
+
+### 5. Visuals & Code Snippets
+
+#### Final Dashboard
+
+![Dashboard Screenshot](./visuals/dashboard_screenshot.png)
+
+#### Example of a Key DAX Measure
+
+```dax
+// This measure calculates the year-to-date revenue.
+Revenue YTD = TOTALYTD(SUM(Sales[Revenue]), 'Calendar'[Date])
